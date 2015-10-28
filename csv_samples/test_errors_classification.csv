@@ -1,0 +1,3 @@
+method,rmse,0-1-loss,log-loss
+logisticRegression,0.1,0.2,0.3
+penLogisticRegression,0.1,0.2,0.3

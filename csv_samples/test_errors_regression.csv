@@ -1,0 +1,4 @@
+method,rmse
+leastSquaresGD,0.1
+leastSquares,0.1
+ridgeRegression,0.1
