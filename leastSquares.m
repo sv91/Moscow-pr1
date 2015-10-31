@@ -1,5 +1,4 @@
 function beta = leastSquares(y,tX)
-
-beta = (tX'*tX)\(tX'*y);
-
+    % Apply function from the slides.
+    beta = (tX'*tX)\(tX'*y);
 end

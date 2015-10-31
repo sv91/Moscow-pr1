@@ -1,6 +1,7 @@
 function beta = leastSquaresGD(y,tX,alpha)
-    [N,~] = size(y);
-    beta = zeros(N+1,1);
+    % Initial values
+    [~,N] = size(tX);
+    beta = zeros(N,1);
     maxIters = 1000;
     lastBeta = beta;
     convergence= 0.00001;
@@ -8,8 +9,8 @@ function beta = leastSquaresGD(y,tX,alpha)
     for k = 1:maxIters
     	g = computeGradient(y, tX,beta);
         beta = beta - alpha .* g;
-        if abs(lastBeta - beta)< beta*convergence
-            break
+        if abs(lastBeta - beta)< beta*convergence 
+            break % If the difference between two step is too small, we stop
         end
     end
 end
