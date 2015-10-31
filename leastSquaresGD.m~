@@ -1,0 +1,13 @@
+function beta = leastSquaresGD(y,tX,alpha)
+
+for k = 1:maxIters
+    g = computeGradient(y, tX,beta);
+    beta = beta - alpha .* g;
+
+end
+
+function g = computeGradient(y,tX,beta)
+    [N,M] = size(y);
+    e = y - tX*beta; %compute error
+    g = tX'*e/(-1*N);%compute MSE
+end
