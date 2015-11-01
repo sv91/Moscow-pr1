@@ -12,6 +12,7 @@ function beta = leastSquaresGD(y,tX,alpha)
         if abs(lastBeta - beta)< beta*convergence 
             break % If the difference between two step is too small, we stop
         end
+        lastBeta = beta;
     end
 end
 
