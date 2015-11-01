@@ -8,7 +8,7 @@ function beta = leastSquaresGD(y,tX,alpha)
 
     for k = 1:maxIters
     	g = computeGradient(y, tX,beta);
-        beta = beta - alpha .* g;
+        beta = beta - alpha * g;
         if abs(lastBeta - beta)< beta*convergence 
             break % If the difference between two step is too small, we stop
         end

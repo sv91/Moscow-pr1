@@ -8,7 +8,7 @@ function beta = logisticRegression(y,tX,alpha)
 
     for k = 1:maxIters
     	g = computeGradient(y, tX,beta);
-        H = computeHessian(tX, beta);
+        H = computeHessian(tx, beta);
         beta = beta - alpha * inv(H) * g;
         if abs(lastBeta - beta)< beta*convergence 
             break % If the difference between two step is too small, we stop
@@ -17,21 +17,21 @@ function beta = logisticRegression(y,tX,alpha)
 end
 
 function g = computeGradient(y,tX,beta)
+    size(y)
     e = logFun(tX*beta) - y;    %compute error
     g = tX'*e;   
 end
 
 function H = computeHessian(tx, beta)
-    [N,~] = size(tx);
+    [N,~] = size(tX);
     S = zeros(N);
-    for i = 1:N
-        l = logFun(tx(i,:)*beta);
-        S(i,i) = l*(1-l);
+    for i = 0:N
+        S(i,i) = logFun(tx(i)'*beta)*(1-logFun(tx(i)'*beta));
     end
-    H = tx'* S * tx;
+    H = tX'* S * tX;
 end
 
 function o = logFun(x)
     o2 = exp(x)/(1+exp(x));
-    o = o2(:,1);
+    o = o2(~,0);
 end

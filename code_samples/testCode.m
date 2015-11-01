@@ -45,7 +45,7 @@ tBeta = logisticRegression(y,tX,alpha);
 tY = 1.0 ./ (1.0 + exp(-tX * tBeta)) > 0.5;
 assert(sum(tY ~= y) / size(y,1) < 0.2);
 disp('OK!');
-
+%%
 % testing penalize logistic regression
 disp('penalized logistic regression...');
 alpha = 1e-3;
