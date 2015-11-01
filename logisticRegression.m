@@ -9,7 +9,7 @@ function beta = logisticRegression(y,tX,alpha)
     for k = 1:maxIters
     	g = computeGradient(y, tX,beta);
         H = computeHessian(tX, beta);
-        beta = beta - alpha * inv(H) * g;
+        beta = beta - (H\alpha) * g;
         if abs(lastBeta - beta)< beta*convergence 
             break % If the difference between two step is too small, we stop
         end
