@@ -1,6 +1,35 @@
 clear all;
 
+
+
+
 load('Moscow_regression')
+
+% step 2 = feature extraction :  analyze the variable, convert some of 
+% them (maybe?), perform PCA for dimensionality reduction ? unsupervised
+% clustering ?
+
+% step 1 = feature importance: compute correlation coefficient of each 
+% variable to determine which are useful
+corrcoef(X_train(:,1), y_train)
+corrcoef(X_train(:,2), y_train)
+
+coefs = corrcoef([X_train y_train]); % last line has coeff correlation of X against y
+coefs = [coefs(end,1:end-1) ; 1:(length(coefs)-1)]'
+sortrows(coefs)
+%[~,I] = sort(coefs(:,2))
+%coefs = coefs(:,I)
+
+%coefs = 
+
+% step 3 = feature selection: use importance to discard some ;
+% regularization methods like LASSO or ridge regression
+
+% step 4 = feature engineering, creates feature based on underlying raw
+% data (difficult)
+
+% step 5 = feature learning: mmh too complex
+
 
 x_reg_train = X_train;
 y_reg_train = y_train;
@@ -53,6 +82,10 @@ unique(X_train(:,65)) % 2
 
 %---
 load('Moscow_classification')
+
+coefs = corrcoef([X_train y_train]); % last line has coeff correlation of X against y
+coefs = [coefs(end,1:end-1) ; 1:(length(coefs)-1)]'
+sortrows(coefs)
 
 x_cl_train = X_train;
 y_cl_train = y_train;
