@@ -12,16 +12,14 @@ for i = 1:D
     stdX = std(x_reg_train(:,i));
     x_reg_train(:,i) = x_reg_train(:,i)./stdX;
     
-    %figure(i);
-    %plot(x_reg_train(:,i),y_reg_train,'.');
-    %hold on
+    plot(x_reg_train(:,i),)
     
     meanX_test = mean(x_reg_test(:,i));
     x_reg_test(:,i) = x_reg_test(:,i) - meanX_test;
     stdX_test = std(x_reg_test(:,i));
     x_reg_test(:,i) = x_reg_test(:,i)./stdX_test;
 end
-%hold off;
+
 
 
 % plot of X data
