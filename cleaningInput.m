@@ -22,10 +22,11 @@ for i = 1:D
     x_reg_test(:,i) = x_reg_test(:,i)./stdX_test;
 end
 %hold off;
-
+figure(1);
+plot(x_reg_train(:,11)+x_reg_train(:,56),y_reg_train,'.');
 
 % plot of X data
-boxplot(X_train)
+%boxplot(X_train)
 %%
 % plot of X data centered
 X_train_centered = X_train;
