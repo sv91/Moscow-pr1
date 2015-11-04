@@ -3,8 +3,8 @@ function beta = logisticRegression(y,tX,alpha)
     maxIters = 1000;
 
     % initialize
-    [~,D] = size(tX)
-    beta = zeros(D, 1)
+    [~,D] = size(tX);
+    beta = zeros(D, 1);
 
     % iterate
     fprintf('Starting iterations, press Ctrl+c to break\n');
@@ -51,7 +51,7 @@ function [ g ] = computeGradientNegMLE( y, tX, beta )
 end
 
 function [ r ] = logisticSigma(x)
-    r = 1 ./ (1 + exp(-x))
+    r = 1 ./ (1 + exp(-x));
 end
 
 function [ L ] = computeCostNegMLE(y, tX, beta)
